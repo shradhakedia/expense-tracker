@@ -1,4 +1,6 @@
-import ExpenseItem from "./components/ExpenseItem";
+import React from "react";
+
+import Expenses from "./components/Expenses/Expenses";
 
 function App() {
   const expenses = [
@@ -35,10 +37,10 @@ function App() {
         title={expenses[0].title}
         amount={expenses[0].amount}
         date={expenses[0].date}
-      ></ExpenseItem> */} 
+      ></ExpenseItem> */}
       {/* we can either pass the object as below or we can pass it properties as above. 
         And this would change the code for component too.*/}
-      <ExpenseItem expense={expenses[0]}></ExpenseItem>
+      <Expenses items={expenses}></Expenses>
     </div>
   );
 }
