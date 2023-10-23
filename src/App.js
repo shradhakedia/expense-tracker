@@ -1,6 +1,7 @@
 import React from "react";
 
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 function App() {
   const expenses = [
@@ -21,14 +22,13 @@ function App() {
       title: "Car Insurance",
       amount: 294.67,
       date: new Date(2021, 2, 28),
-    },
-    {
-      id: "e4",
-      title: "New Desk (Wooden)",
-      amount: 450,
-      date: new Date(2021, 5, 12),
-    },
+    }
   ];
+
+  const addExpenseDataHandler = (expenseData) => {
+    expenses.push(expenseData);
+    console.log(expenses);
+  };
 
   return (
     <div>
@@ -40,6 +40,7 @@ function App() {
       ></ExpenseItem> */}
       {/* we can either pass the object as below or we can pass it properties as above. 
         And this would change the code for component too.*/}
+      <NewExpense onAddExpense={addExpenseDataHandler}/>
       <Expenses items={expenses}></Expenses>
     </div>
   );
