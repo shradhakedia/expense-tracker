@@ -68,11 +68,13 @@ const ExpenseForm = (props) => {
     const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
-      // new Date chnages the string date to Date object.
+      // new Date changes the string date to Date object.
       date: new Date(enteredDate),
     };
 
     props.onSaveExpenseData(expenseData);
+
+    props.showAddNewExpenseButton();
 
     // set these values to empty again after getting the value and processing with it.
     // Done with the help of states: two way binding by adding value attribute to input tag.
@@ -114,6 +116,9 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={props.showAddNewExpenseButton}>
+          Cancel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
